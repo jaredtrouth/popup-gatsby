@@ -955,17 +955,10 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.5.5":
-  version "7.10.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.5.tgz#303d8bd440ecd5a491eae6117fd3367698674c5c"
-  integrity sha512-otddXKhdNn7d0ptoFRHtMLa8LqDxLYwTjB4nYgM1yy5N6gU/MUf8zqyyLltCH3yAVitBzmwK4us+DD0l/MauAg==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
-  version "7.11.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
-  integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.12.5", "@babel/runtime@^7.2.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -6731,12 +6724,12 @@ gatsby-graphiql-explorer@^0.4.12:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-image@^2.3.5:
-  version "2.4.14"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.4.14.tgz#23e02f5248c96471d7561bd56af8be2b39847a09"
-  integrity sha512-JO4Ul+EMCCPS0FddFc8USCDl5roUZDOXg8x99DxE0UShuZTEAtkn+kb8KzpvtPlnwt/0YwBUpcvVrat3yAVz2w==
+gatsby-image@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.8.0.tgz#fd88262e3c046b7de8a3900bc082f65683490829"
+  integrity sha512-yKoOdmO5E97PThF6W8KOr5zeg7nYu3sE44iOupyFKqUvCDRNg9aPBpruCE4Adfc3yxyhFIN70CGV6nAQNOtmvA==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.12.5"
     object-fit-images "^3.2.4"
     prop-types "^15.7.2"
 
@@ -6805,15 +6798,15 @@ gatsby-plugin-netlify-cms@^4.2.5:
     netlify-identity-widget "^1.6.0"
     webpack "^4.43.0"
 
-gatsby-plugin-netlify@^2.2.4:
-  version "2.3.12"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.3.12.tgz#9f9cdb844e9094eec8452b0c374caac5851f9aff"
-  integrity sha512-+HuOo9oomrNrVwIoQ2NozoGfT7P1smSbG1SIaQZmEVdB+AZal5E7FS73BMEO3P82F04+ra0nqzuxnIL/ZenJGA==
+gatsby-plugin-netlify@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.8.0.tgz#686323c18d920e0091f6df03c9e35b819f03ae72"
+  integrity sha512-Nz38dvPBAwqVQdoRWZLip1ITzgZB6noiZq9NbpiVX/GW3e1dFaLPZH0bnwp0rCkt6MIjxgqELSjR5YzhRzaERA==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.12.5"
     fs-extra "^8.1.0"
     kebab-hash "^0.1.2"
-    lodash "^4.17.15"
+    lodash "^4.17.20"
     webpack-assets-manifest "^3.1.1"
 
 gatsby-plugin-page-creator@^2.3.20:
@@ -6845,12 +6838,12 @@ gatsby-plugin-react-helmet@^3.2.5:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-plugin-sass@^2.2.4:
-  version "2.3.12"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.3.12.tgz#4ebdf2d541004e60a5d108eb1302a43b16ceeeaf"
-  integrity sha512-cQHp4bvK3a0xId4Q9K9/1ejGVMMOm/1I28ry7quVoHVomSB4SwNJpMTGSgSYAKn3gjsveUyL+ceCRWeiIavkPA==
+gatsby-plugin-sass@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.8.0.tgz#98212cd9bb0e5a9aa7ce86ee1dd9ea078520f576"
+  integrity sha512-lUEM5f4bPr6+m8cgB0uq6YBSbqIUxk8tfIthGmsFVbAulnrGBswMRSynyNSAE5APWmUGqwp9GuATDdsV+B5BVg==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.12.5"
     sass-loader "^7.3.1"
 
 gatsby-plugin-sharp@^2.5.7:
@@ -9755,10 +9748,10 @@ lodash.uniq@4.5.0, lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.0.0, lodash@^4.1.1, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+lodash@^4.0.0, lodash@^4.1.1, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@~4.17.10:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 log-update@^3.0.0:
   version "3.4.0"
