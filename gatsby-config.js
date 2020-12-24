@@ -1,16 +1,42 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Pop-Up Chicken Shop | Illinois Hot Chicken | Bloomington',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'TODO',
+    siteUrl: 'https://keepitpopup.com',
+    image: 'img/popup_logo_badge.jpg',
+    linkedinUsername: 'jtrouth',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-preload-fonts',
+    {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@config': path.resolve(__dirname, 'src/config'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@icons': path.resolve(__dirname, 'src/icons'),
+        '@pages': path.resolve(__dirname, 'src/pages'),
+        '@fonts': path.resolve(__dirname, 'src/fonts'),
+        '@hooks': path.resolve(__dirname, 'src/hooks'),
+      }
+      }
+    },
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        indentedSyntax: true
-      }
+        indentedSyntax: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
     },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -32,6 +58,18 @@ module.exports = {
       options: {
         path: `${__dirname}/src/img`,
         name: 'images',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Pop-Up Chicken Shop`,
+        short_name: `Pop-Up Chicken`,
+        start_url: `/`,
+        background_color: `#ed3825`,
+        theme_color: `#002156`,
+        display: `browser`,
+        icon: 'src/img/logo.png'
       },
     },
     'gatsby-plugin-sharp',
@@ -74,7 +112,6 @@ module.exports = {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array

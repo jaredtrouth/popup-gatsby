@@ -1,98 +1,139 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React, { useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
+import useScrollDirection from '@hooks/useScrollDirection';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
+const StyledHeader = styled.header`
+  ${({ theme }) => theme.mixins.flexAround };
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  width: 100%;
+  height: 64px;
+  top: 0;
+  background-color: var(--red);
+  transition: var(--transition);
+
+  ${props =>
+    props.scrollDirection === 'down' &&
+    !props.scrolledToTop &&
+    css`
+      top: -84px;
+      transform: translateY(0);
+      box-shadow: 0 10px 30px -10px black;
+    `};
+  
+  ${props => 
+    props.scrollDirection === 'up' &&
+    !props.scrolledToTop &&
+    css`
+      top: 0;
+      transform: translateY(calc(64 * -1));
+      box-shadow: 0 10px 30px -10px black;
+    `};
+`;
+
+const StyledNav = styled.nav`
+  position: relative;
+  width: 100%;
+  color: slate;
+  z-index: 12;
+
+`;
+
+const StyledLinks = styled.div`
+
+  .logo {
+    padding: 0;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+    a {
+      color: var(--navy);
+      width: 62px;
+      height: 62px;
+      padding: 5px 0;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.1);
+        background-color: inherit;
+      }
     }
   }
 
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
-      }
-    )
+  @media (max-width: 768px;) {
+    display: none;
   }
 
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    )
+  ol {
+    ${({ theme }) => theme.mixins.flexBetween};
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
   }
+
+  li {
+    margin: 0 5px;
+    position: relative;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-align: center;
+
+    a {
+      color: var(--yellow);
+      font-family: var(--font-bold);
+      letter-spacing: 3px;
+      text-shadow: -2px 2px var(--navy);
+      padding: 3px 10px;
+      border-radius: 5px;
+
+      &:hover,
+      &:focus {
+        background-color: var(--yellow-tint);
+      }      
+    }
+  }
+`;
+
+const Navbar = ({ isHome }) => {
+  const scrollDirection = useScrollDirection('down');
+  const [scrolledToTop, setScrolledToTop] = useState(true);
+
+  const handleScroll = () => {
+    setScrolledToTop(window.pageYOffset < 50);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+  return (
+    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+      <StyledNav>
+        <StyledLinks>
+          <ol>
+            <li><Link to="/#menu">Menu</Link></li>
+            <li><Link to="/#location">Location</Link></li>
+          </ol>
+        </StyledLinks>
+      </StyledNav>
+    </StyledHeader>
+  )
 }
 
-export default Navbar
+Navbar.propTypes = {
+  isHome: PropTypes.bool,
+};
+
+export default Navbar;
