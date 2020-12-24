@@ -1,6 +1,7 @@
 [build]
   publish = "public"
   command = "npm run build"
+  dir = "/"
   functions = "lambda"
 [build.environment]
   NODE_VERSION = "12"
