@@ -121,18 +121,18 @@ const StyledBanner = styled.div`
 
 const Ribbon = () => {
     return (
-        <div class="corner-ribbon">Inside the VFW</div>
+        <div className="corner-ribbon">Inside the VFW</div>
     )
 }
 
 const LargeLogo = () => {
     return (
         <div className="large-logo">
-            <div class="large-logo-title">
+            <div className="large-logo-title">
                 <IconLogo size={78} />
                 <h1>Pop-Up</h1>
             </div>
-            <div class="large-logo-subtitle">
+            <div className="large-logo-subtitle">
                 <h2>Chicken Shop</h2>
             </div>
         </div>
@@ -141,7 +141,7 @@ const LargeLogo = () => {
 
 const AddressBlock = () => {
     return (
-        <div class="address-block">
+        <div className="address-block">
             <span className="avatar">
                 <Icon name="Location" size={42} />
             </span>
@@ -150,17 +150,17 @@ const AddressBlock = () => {
                   Bloomington, IL 61701
             </address>
             <Icon name="Phone" size={18} />
-            <a href="tel:+13098273999" class="phone">(309) 827-3999</a>
+            <a href="tel:+13098273999" className="phone">(309) 827-3999</a>
             <br />
             <Icon name="Phone" size={18} />
-            <a href="tel:+1309-821-1380" class="phone">(309) 821-1380</a>
+            <a href="tel:+1309-821-1380" className="phone">(309) 821-1380</a>
         </div>
     )
 };
 
 const HoursBlock = () => {
     return (
-        <div class="hours-block">
+        <div className="hours-block">
             <span className="avatar">
                 <Icon name="Clock" size={42} />
             </span>

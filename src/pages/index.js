@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '@components/Layout'
+import Menu from '../components/Menu';
 
 
 const StyledMainContainer = styled.main`
@@ -42,16 +43,18 @@ const IndexPage = ({ location }) => (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">
       <StyledSectionHeading id="menu">Menu</StyledSectionHeading>
-        <StyledSection></StyledSection>
+        <StyledSection>
+          <Menu />
+        </StyledSection>
       <StyledSectionHeading id="location">Location</StyledSectionHeading>
       <StyledSection>
         <iframe
             width="100%"
             height="450"
-            frameborder="0"
+            frameBorder="0"
             style={{border: 0}}
             src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJBzSEoRVvC4gRQ3DVfi7e6yc&key=AIzaSyBJC9i-Zt2WRdAow4kjzMW7DcTagXu-G7U&zoom=13"
-            allowfullscreen
+            allowFullScreen
             title="Google Maps"
           ></iframe>
       </StyledSection>
