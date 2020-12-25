@@ -33,7 +33,7 @@ const StyledSection = styled.section`
   @media (min-width: 768px) {
     & > * {
       margin: 20px;
-      box-shadow: -5px 5px 15px 3px black;
+      box-shadow: -2px 2px 5px 1px black;
     }
   }
 `;
@@ -52,7 +52,7 @@ const IndexPage = ({ location }) => (
             width="100%"
             height="450"
             frameBorder="0"
-            style={{border: 0}}
+            style={{border: 0, borderRadius: "5px"}}
             src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJBzSEoRVvC4gRQ3DVfi7e6yc&key=AIzaSyBJC9i-Zt2WRdAow4kjzMW7DcTagXu-G7U&zoom=13"
             allowFullScreen
             title="Google Maps"
