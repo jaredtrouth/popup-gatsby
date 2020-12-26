@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useMenuData } from '@hooks/useMenuData';
 import { Icon } from '@components/icons';
 import { convertPrice } from '@helpers';
 
@@ -143,8 +142,7 @@ MenuItem.propTypes = {
 }
 
 
-const Menu = () => {
-    const menu = useMenuData();
+const Menu = ({ menu }) => {
     return (
         <StyledMenuCard>
             <StyledMenuHeader>

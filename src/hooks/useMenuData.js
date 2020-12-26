@@ -1,6 +1,6 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-export const useMenuData = () => {
+const useMenuData = () => {
     const menu = useStaticQuery(graphql`
     query {
         entrees: 
@@ -77,4 +77,6 @@ export const useMenuData = () => {
         sauces: menu.sauces.edges.map(edge => edge.node.frontmatter),
         drinks: menu.drinks.edges.map(edge => edge.node.frontmatter),
     };
-}
+};
+
+export default useMenuData;

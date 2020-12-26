@@ -15,9 +15,8 @@ collections:
   - name: "entrees"
     label: "Entrees"
     label_singular: "Entree"
-    folder: "src/content/_menu"
-    slug: "{{templateKey}}_{{slug}}"
-    filter: {field: "templateKey", value: "entrees"}
+    folder: "src/content/_menu/entrees"
+    slug: "{{slug}}"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "entrees"}
@@ -29,9 +28,8 @@ collections:
   - name: "sides"
     label: "Sides"
     label_singular: "Side"
-    folder: "src/content/_menu"
-    slug: "{{templateKey}}_{{slug}}"
-    filter: {field: "templateKey", value: "sides"}
+    folder: "src/content/_menu/sides"
+    slug: "{{slug}}"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sides"}
@@ -43,9 +41,8 @@ collections:
   - name: "addons"
     label: "Addons"
     label_singular: "Addon"
-    folder: "src/content/_menu"
-    slug: "{{templateKey}}_{{slug}}"
-    filter: {field: "templateKey", value: "addons"}
+    folder: "src/content/_menu/addons"
+    slug: "{{slug}}"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "addons"}
@@ -57,9 +54,8 @@ collections:
   - name: "sauces"
     label: "Sauces"
     label_singular: "Sauce"
-    folder: "src/content/_menu"
-    slug: "{{templateKey}}_{{slug}}"
-    filter: {field: "templateKey", value: "sauces"}
+    folder: "src/content/_menu/sauces"
+    slug: "{{slug}}"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sauces"}
@@ -68,9 +64,8 @@ collections:
   - name: "drinks"
     label: "Drinks"
     label_singular: "Drink"
-    folder: "src/content/_menu"
-    slug: "{{templateKey}}_{{slug}}"
-    filter: {field: "templateKey", value: "drinks"}
+    folder: "src/content/_menu/drinks"
+    slug: "{{slug}}"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drinks"}

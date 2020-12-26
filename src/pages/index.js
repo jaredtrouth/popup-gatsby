@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '@components/Layout'
 import Menu from '../components/Menu';
+import useMenuData from '@hooks/useMenuData';
 
 const StyledMainContainer = styled.main`
   background-color: white;
@@ -39,12 +40,14 @@ const StyledSection = styled.section`
 `;
 
 
-const IndexPage = ({ location }) => (
+const IndexPage = ({ location }) => {
+  const menu = useMenuData();
+  return (
   <Layout location={location}>
     <StyledMainContainer className="fillHeight">
       <StyledSectionHeading id="menu">Menu</StyledSectionHeading>
         <StyledSection>
-          <Menu />
+          <Menu menu={menu} />
         </StyledSection>
       <StyledSectionHeading id="location">Location</StyledSectionHeading>
       <StyledSection>
@@ -60,7 +63,8 @@ const IndexPage = ({ location }) => (
       </StyledSection>
     </StyledMainContainer>
   </Layout>
-);
+  )
+};
 
 IndexPage.propTypes = {
   location: PropTypes.object.isRequired,

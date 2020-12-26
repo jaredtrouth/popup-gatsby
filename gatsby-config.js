@@ -74,6 +74,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-transformer-yaml-full',
+      options: {
+        resolve: 'gatsby-source-filesystem',
+        options: {
+          path: 'src/content/_menu'
+        }
+      }
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
