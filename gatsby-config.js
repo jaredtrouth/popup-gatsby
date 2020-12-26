@@ -37,6 +37,8 @@ module.exports = {
         // Add any options here
       },
     },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -71,8 +73,6 @@ module.exports = {
         icon: 'src/img/logo.png'
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
