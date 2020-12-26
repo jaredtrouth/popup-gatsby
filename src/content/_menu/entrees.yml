@@ -1,1 +1,5 @@
-
+Items:
+  - title: White
+    description: Boneless breast and wing
+    price: 8
+    image: /img/hero_chicken_waffles.png
