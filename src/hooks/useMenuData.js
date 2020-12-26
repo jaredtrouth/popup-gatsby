@@ -9,7 +9,6 @@ export const useMenuData = () => {
                 node {
                     frontmatter {
                         description
-                        image
                         price
                         templateKey
                         title
@@ -23,7 +22,6 @@ export const useMenuData = () => {
                 node {
                     frontmatter {
                         description
-                        image
                         price
                         templateKey
                         title
@@ -37,7 +35,6 @@ export const useMenuData = () => {
                 node {
                     frontmatter {
                         description
-                        image
                         price
                         templateKey
                         title
@@ -51,7 +48,6 @@ export const useMenuData = () => {
                 node {
                     frontmatter {
                         description
-                        image
                         templateKey
                         title
                     }
@@ -64,7 +60,6 @@ export const useMenuData = () => {
                 node {
                     frontmatter {
                         description
-                        image
                         price
                         templateKey
                         title
