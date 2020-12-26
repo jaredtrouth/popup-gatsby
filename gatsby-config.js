@@ -7,7 +7,6 @@ module.exports = {
       'TODO',
     siteUrl: 'https://keepitpopup.com',
     image: 'img/popup_logo_badge.jpg',
-    linkedinUsername: 'jtrouth',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
