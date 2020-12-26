@@ -89,6 +89,7 @@ const StyledMenuSection = styled.div`
         .description {
             font-family: "Libre Baskerville", sans-serif;
             font-size: 0.7em;
+        }
     }
 
     .menu-item-right {
@@ -100,26 +101,26 @@ const StyledFooter = styled.div`
     width: 100%;
     border-bottom: 15px solid var(--yellow);
     text-align: center;
-  address {
-    font-style: normal;
-    a {
-      text-decoration: none;
-      font: inherit;
-      color: inherit;
+    address {
+        font-style: normal;
+        a {
+            text-decoration: none;
+            font: inherit;
+            color: inherit;
+        }
+        a:hover,
+        a:active {
+            text-decoration: underline;
+            background-color: inherit;
+        }
     }
-    a:hover,
-    a:active {
-      text-decoration: underline;
-      background-color: inherit;
-    }
-  }
 `;
 
 const MenuItem = ({ title, description, price }) => (
     <div className="menu-item-wrapper">
         <div className="menu-item-left">
             <div className="title">{title}</div>
-            {!!description ? <div className="description">{description}</div> : ''}
+            <div className="description">{description}</div>
         </div>
         <div className="menu-item-right">${price}</div>
     </div>
