@@ -12,64 +12,120 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "entrees"
-    label: "Entrees"
-    label_singular: "Entree"
-    folder: "src/content/_menu/entrees"
-    slug: "{{slug}}"
-    create: true
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "entrees"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
-      - {label: "Image", name: "image", widget: "image", required: false}
+  # - name: "entrees"
+  #   label: "Entrees"
+  #   label_singular: "Entree"
+  #   folder: "src/content/_menu/entrees"
+  #   slug: "{{slug}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Description", name: "description", widget: "text", required: false}
+  #     - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+  #     - {label: "Image", name: "image", widget: "image", required: false}
   
-  - name: "sides"
-    label: "Sides"
-    label_singular: "Side"
-    folder: "src/content/_menu/sides"
-    slug: "{{slug}}"
-    create: true
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sides"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
-      - {label: "Image", name: "image", widget: "image", required: false}
+  # - name: "sides"
+  #   label: "Sides"
+  #   label_singular: "Side"
+  #   folder: "src/content/_menu/sides"
+  #   slug: "{{slug}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Description", name: "description", widget: "text", required: false}
+  #     - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+  #     - {label: "Image", name: "image", widget: "image", required: false}
 
-  - name: "addons"
-    label: "Addons"
-    label_singular: "Addon"
-    folder: "src/content/_menu/addons"
-    slug: "{{slug}}"
-    create: true
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "addons"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
-      - {label: "Image", name: "image", widget: "image", required: false}
+  # - name: "addons"
+  #   label: "Addons"
+  #   label_singular: "Addon"
+  #   folder: "src/content/_menu/addons"
+  #   slug: "{{slug}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Description", name: "description", widget: "text", required: false}
+  #     - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+  #     - {label: "Image", name: "image", widget: "image", required: false}
   
-  - name: "sauces"
-    label: "Sauces"
-    label_singular: "Sauce"
-    folder: "src/content/_menu/sauces"
-    slug: "{{slug}}"
-    create: true
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sauces"}
-      - {label: "Title", name: "title", widget: "string"}
-  
-  - name: "drinks"
-    label: "Drinks"
-    label_singular: "Drink"
-    folder: "src/content/_menu/drinks"
-    slug: "{{slug}}"
-    create: true
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drinks"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
-      - {label: "Image", name: "image", widget: "image", required: false}
+  # - name: "sauces"
+  #   label: "Sauces"
+  #   label_singular: "Sauce"
+  #   folder: "src/content/_menu/sauces"
+  #   slug: "{{slug}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+
+  - name: "menu"
+    label: "Menu"
+    files:
+      - name: "sauces"
+        label: "Sauces"
+        file: "src/content/_menu/sauce_list.yml"
+        fields:
+          - {name: "title", Label: "Title", widget: "string"}
+          - {name: "price", label: "Price", widget: "number", value_type: "float", min: 0, step: 0.1}
+          - name: "items"
+            label: "Sauce"
+            widget: "list"
+            fields:
+              - {name: "title", Label: "Title", widget: "string"}
+      - name: "entrees"
+        label: "Entrees"
+        file: "src/content/_menu/entrees.yml"
+        fields:
+          - {name: "title", Label: "Title", widget: "string"}
+          - name: "items"
+            label: "Entree"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text", required: false}
+              - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+      - name: "sides"
+        label: "Sides"
+        file: "src/content/_menu/sides.yml"
+        fields:
+          - {name: "title", Label: "Title", widget: "string"}
+          - name: "items"
+            label: "Side"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text", required: false}
+              - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+      - name: "addons"
+        label: "Add-Ons"
+        file: "src/contents/_menu/addons.yml"
+        fields:
+          - {name: "title", Label: "Title", widget: "string"}
+          - name: "items"
+            label: "Add-On"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text", required: false}
+              - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+      - name: "drinks"
+        label: "Drinks"
+        file: "src/content/_menu/drinks.yml"
+        fields:
+          - {name: "title", Label: "Title", widget: "string"}
+          - name: "items"
+            label: "Drink"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+  # - name: "drinks"
+  #   label: "Drinks"
+  #   label_singular: "Drink"
+  #   folder: "src/content/_menu/drinks"
+  #   slug: "{{slug}}"
+  #   create: true
+  #   fields:
+  #     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "drinks"}
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
+  #     - {label: "Image", name: "image", widget: "image", required: false}

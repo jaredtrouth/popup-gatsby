@@ -11,6 +11,8 @@ const StyledMenuCard = styled.div`
     display: flex;
     flex-wrap: wrap;
     color: black;
+    text-transform: uppercase;
+    font-size: 16px;
 `;
 
 const StyledMenuHeader = styled.div`
@@ -34,7 +36,6 @@ const StyledMenuHeader = styled.div`
             padding: 0 5px;
             text-align: center; 
             align: center; 
-            text-transform: uppercase;
         }
 
     }
@@ -68,12 +69,33 @@ const StyledMenuSection = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10px;
+
+    h2 {
+        font-family: "Kanit", sans-serif;
+        letter-spacing: 1px;
+        color: var(--red);
+        margin: 0 0 10px 0;
+
+        &:before {
+            content: '• ';
+        }
+        &:after {
+            content: ' •';
+        }
+    }
+
+    h4, h5 { 
+        color: var(--red);
+        margin: 0; 
+        text-align: center;
+    }
     
     .menu-item-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 5px;
+        margin-bottom: 1rem;
+        border-bottom: 1px dotted grey;
     }
 
     .menu-item-left {
@@ -81,28 +103,26 @@ const StyledMenuSection = styled.div`
         margin-right: 10px;
 
         .title {
-            font-family: "Anton", sans-serif;
-            font-size: 1em;
-            letter-spacing: 2px;
-            font-weight: bold;
+            font-family: "Lato", sans-serif;
+            font-weight: 900;
         }
 
         .description {
-            font-size: 0.75em;
+            font-size: 0.85em;
             color: rgba(0,0,0,.6);
-            text-transform: uppercase;
             line-height: 1.2;
+            padding-left: 0.5rem;
         }
     }
 
     .menu-item-right {
         flex: 1 1 auto;
-        font-family: "Anton", sans-serif;
-        font-style: normal;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
         font-size: 16px;
-        letter-spacing: 1px;
         text-align: right;
         margin-left: 10px;
+        align-self: flex-end;
     }
 `;
 
@@ -148,28 +168,34 @@ const Menu = ({ menu }) => {
             <StyledMenuHeader>
                 <MenuHeader />
             </StyledMenuHeader>
-            <div style={{color: "var(--red)", width: "100%"}}>
-                <h4 style={{margin: "10px 0", fontSize: "18px", textAlign: "center", textTransform: "uppercase"}}>Choose a style & heat level - served with bread & pickles</h4>
-            </div>
+            
             <StyledColumn>
                 <StyledMenuSection>
-                    {menu.entrees.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
+                    <div>
+                        <h4>Choose a style & heat level</h4>
+                        <h5>Served with bread & pickles</h5>
+                    </div>
+                    {menu.entrees.items.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
                 </StyledMenuSection>
                     
                 <StyledMenuSection>Heat Meter</StyledMenuSection>
             </StyledColumn>
-            <StyledColumn>
+            <StyledColumn style={{paddingTop: 15}}>
                 <StyledMenuSection>
-                    {menu.sides.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
+                    <h2>Sides</h2>
+                    {menu.sides.items.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
                 </StyledMenuSection>
                 <StyledMenuSection>
-                    {menu.addons.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
+                    <h2>Addons</h2>
+                    {menu.addons.items.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
                 </StyledMenuSection>
                 <StyledMenuSection>
-                    {menu.sauces.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
+                    <h2>Sauces</h2>
+                    TODO: Sauce Card
                 </StyledMenuSection>
                 <StyledMenuSection>
-                    {menu.drinks.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
+                    <h2>Drinks</h2>
+                    {menu.drinks.items.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}
                 </StyledMenuSection>
             </StyledColumn>
             <StyledFooter>

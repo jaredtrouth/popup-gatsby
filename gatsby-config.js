@@ -12,6 +12,18 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-preload-fonts',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Pop-Up Chicken Shop`,
+        short_name: `Pop-Up Chicken`,
+        start_url: `/`,
+        background_color: `#ed3825`,
+        theme_color: `#002156`,
+        display: `browser`,
+        icon: 'src/img/logo.png'
+      },
+    },
+    {
       resolve: `gatsby-alias-imports`,
       options: {
         aliases: {
@@ -24,12 +36,6 @@ module.exports = {
         '@hooks': path.resolve(__dirname, 'src/hooks'),
       }
       }
-    },
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        indentedSyntax: true,
-      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -50,65 +56,18 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/content/_menu`,
+        path: 'src/content/_menu',
         name: 'menu',
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Pop-Up Chicken Shop`,
-        short_name: `Pop-Up Chicken`,
-        start_url: `/`,
-        background_color: `#ed3825`,
-        theme_color: `#002156`,
-        display: `browser`,
-        icon: 'src/img/logo.png'
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-yaml-full',
+      resolve: 'gatsby-transformer-yaml',
       options: {
         resolve: 'gatsby-source-filesystem',
         options: {
           path: 'src/content/_menu'
         }
       }
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads',
-            },
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 1024,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-copy-linked-files',
-            options: {
-              destinationDir: 'static',
-            },
-          },
-        ],
-      },
     },
     {
       resolve: 'gatsby-plugin-netlify-cms',

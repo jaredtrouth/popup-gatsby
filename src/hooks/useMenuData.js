@@ -2,81 +2,31 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const useMenuData = () => {
     const menu = useStaticQuery(graphql`
-    query {
-        entrees: 
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\\/_menu\\/entrees/"}}) {
+    {
+        allMenuYaml {
             edges {
                 node {
-                    frontmatter {
+                    name
+                    title
+                    items {
                         description
                         price
-                        templateKey
                         title
                     }
-                }
-            }
-        }
-        sides: 
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\\/_menu\\/sides/"}}) {
-            edges {
-                node {
-                    frontmatter {
-                        description
-                        price
-                        templateKey
-                        title
-                    }
-                }
-            }
-        }
-        addons: 
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\\/_menu\\/addons/"}}) {
-            edges {
-                node {
-                    frontmatter {
-                        description
-                        price
-                        templateKey
-                        title
-                    }
-                }
-            }
-        }
-        sauces: 
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\\/_menu\\/sauces/"}}) {
-            edges {
-                node {
-                    frontmatter {
-                        description
-                        templateKey
-                        title
-                    }
-                }
-            }
-        }
-        drinks: 
-        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/content\\/_menu\\/drinks/"}}) {
-            edges {
-                node {
-                    frontmatter {
-                        description
-                        price
-                        templateKey
-                        title
-                    }
+                    price
                 }
             }
         }
     }
-    `
-    );
+    `);
+    
     return {
-        entrees: menu.entrees.edges.map(edge => edge.node.frontmatter),
-        sides: menu.sides.edges.map(edge => edge.node.frontmatter),
-        addons: menu.addons.edges.map(edge => edge.node.frontmatter),
-        sauces: menu.sauces.edges.map(edge => edge.node.frontmatter),
-        drinks: menu.drinks.edges.map(edge => edge.node.frontmatter),
-    };
+        entrees: menu.allMenuYaml.edges.find(e => e.node.name === 'entrees').node,
+        sides: menu.allMenuYaml.edges.find(e => e.node.name === 'sides').node,
+        addons: menu.allMenuYaml.edges.find(e => e.node.name === 'addons').node,
+        sauces: menu.allMenuYaml.edges.find(e => e.node.name === 'sauces').node,
+        drinks: menu.allMenuYaml.edges.find(e => e.node.name === 'drinks').node,
+    }
 };
 
 export default useMenuData;
