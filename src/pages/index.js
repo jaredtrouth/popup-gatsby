@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Layout from '@components/Layout'
 import Menu from '../components/Menu';
 
-
 const StyledMainContainer = styled.main`
   background-color: white;
 `;
@@ -33,6 +32,7 @@ const StyledSection = styled.section`
   @media (min-width: 768px) {
     & > * {
       margin: 20px;
+      border-radius: 5px;
       box-shadow: -2px 2px 5px 1px black;
     }
   }
@@ -52,7 +52,7 @@ const IndexPage = ({ location }) => (
             width="100%"
             height="450"
             frameBorder="0"
-            style={{border: 0, borderRadius: "5px"}}
+            className="map"
             src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJBzSEoRVvC4gRQ3DVfi7e6yc&key=AIzaSyBJC9i-Zt2WRdAow4kjzMW7DcTagXu-G7U&zoom=13"
             allowFullScreen
             title="Google Maps"

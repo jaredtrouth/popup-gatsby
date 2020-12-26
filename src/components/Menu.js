@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useMenuData } from '@hooks/useMenuData';
 import { Icon } from '@components/icons';
+import { convertPrice } from '@helpers';
 
 const StyledMenuCard = styled.div`
     max-width: 960px;
     background-color: white;
     padding: 10px 0;
-    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
     color: black;
@@ -73,11 +73,13 @@ const StyledMenuSection = styled.div`
     .menu-item-wrapper {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
     }
 
     .menu-item-left {
         flex: 2 2 auto;
+        margin-right: 10px;
 
         .title {
             font-family: "Anton", sans-serif;
@@ -87,13 +89,21 @@ const StyledMenuSection = styled.div`
         }
 
         .description {
-            font-family: "Libre Baskerville", sans-serif;
-            font-size: 0.7em;
+            font-size: 0.75em;
+            color: rgba(0,0,0,.6);
+            text-transform: uppercase;
+            line-height: 1.2;
         }
     }
 
     .menu-item-right {
         flex: 1 1 auto;
+        font-family: "Anton", sans-serif;
+        font-style: normal;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-align: right;
+        margin-left: 10px;
     }
 `;
 
@@ -122,19 +132,27 @@ const MenuItem = ({ title, description, price }) => (
             <div className="title">{title}</div>
             <div className="description">{description}</div>
         </div>
-        <div className="menu-item-right">${price}</div>
+        <div className="menu-item-right">{convertPrice(price)}</div>
     </div>
 );
+
+MenuItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    price: PropTypes.number.isRequired
+}
 
 
 const Menu = () => {
     const menu = useMenuData();
-    console.log(menu);
     return (
         <StyledMenuCard>
             <StyledMenuHeader>
                 <MenuHeader />
             </StyledMenuHeader>
+            <div style={{color: "var(--red)", width: "100%"}}>
+                <h4 style={{margin: "10px 0", fontSize: "18px", textAlign: "center", textTransform: "uppercase"}}>Choose a style & heat level - served with bread & pickles</h4>
+            </div>
             <StyledColumn>
                 <StyledMenuSection>
                     {menu.entrees.map(i => <MenuItem title={i.title} description={i.description} price={i.price} key={i.title} />)}

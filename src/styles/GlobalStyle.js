@@ -37,6 +37,7 @@ body {
     color: var(--navy);
     font-family: var(--font-sans);
     font-size: 20px;
+    scroll-behavior: smooth;
     
     @media (max-width: 480px) {
         font-size: 18px;

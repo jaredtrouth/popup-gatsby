@@ -12,7 +12,11 @@ import PropTypes from 'prop-types';
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
 if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]');
+  require('smooth-scroll')('a[href*="#"]', {
+    speed: 750,
+    offset: 64,
+    easing: 'easeInOutQuad',
+  });
 }
 
 const StyledContent = styled.div`

@@ -64,9 +64,6 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sauces"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", required: false}
-      - {label: "Price", name: "price", widget: "number", value_type: "float", min: 0, step: 0.5}
-      - {label: "Image", name: "image", widget: "image", required: false}
   
   - name: "drinks"
     label: "Drinks"

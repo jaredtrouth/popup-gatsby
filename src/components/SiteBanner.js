@@ -14,26 +14,6 @@ const StyledBanner = styled.div`
    color: var(--yellow);
    text-shadow: -2px 2px var(--navy);
 
-   .corner-ribbon {
-       display: block;
-        width: 350px;
-        background: var(--navy);
-        position: absolute;
-        top: 55px;
-        left: -120px;
-        font-family: "EckhardtPosterItalicJNL";
-        font-size: 1.15rem;
-        text-align: center;
-        line-height: 1.5rem;
-        letter-spacing: 1px;
-        color: var(--yellow);
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
-        padding-bottom: 2px;
-        z-index: 12;
-    }
-
     .address-block,
     .hours-block {
         margin: 1vh auto;
@@ -72,7 +52,7 @@ const StyledBanner = styled.div`
 
    .large-logo {
        display: flex;
-       margin: 1vh auto;
+       margin: 0 auto;
        align-content: flex-start;
        justify-content: center;
        flex-wrap: wrap;
@@ -114,22 +94,18 @@ const StyledBanner = styled.div`
                 letter-spacing: 0.4rem;
             }
        }
+   }
 
+   a {
+       transition: background-color 0.5s;
    }
 `;
-
-
-const Ribbon = () => {
-    return (
-        <div className="corner-ribbon">Inside the VFW</div>
-    )
-}
 
 const LargeLogo = () => {
     return (
         <div className="large-logo">
             <div className="large-logo-title">
-                <IconLogo size={78} />
+                <IconLogo size={72} />
                 <h1>Pop-Up</h1>
             </div>
             <div className="large-logo-subtitle">
@@ -149,10 +125,10 @@ const AddressBlock = () => {
                   1006 E. Lincoln St.<br />
                   Bloomington, IL 61701
             </address>
-            <Icon name="Phone" size={18} />
+            <Icon name="Phone" size={16} />
             <a href="tel:+13098273999" className="phone">(309) 827-3999</a>
             <br />
-            <Icon name="Phone" size={18} />
+            <Icon name="Phone" size={16} />
             <a href="tel:+1309-821-1380" className="phone">(309) 821-1380</a>
         </div>
     )

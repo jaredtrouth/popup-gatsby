@@ -1,7 +1,7 @@
 ---
 templateKey: entrees
 title: Breast
-description: Lorem Ipsum
-price: 8
+description: Boneless breast. Comes with 1 dipping sauce.
+price: 6
 image: /img/logo.png
 ---

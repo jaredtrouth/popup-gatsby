@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useScrollDirection from '@hooks/useScrollDirection';
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 const StyledHeader = styled.header`
@@ -123,8 +122,8 @@ const Navbar = ({ isHome }) => {
       <StyledNav>
         <StyledLinks>
           <ol>
-            <li><Link to="/#menu">Menu</Link></li>
-            <li><Link to="/#location">Location</Link></li>
+            <li><a href="/#menu">Menu</a></li>
+            <li><a href="/#location">Location</a></li>
           </ol>
         </StyledLinks>
       </StyledNav>

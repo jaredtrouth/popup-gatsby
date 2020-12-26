@@ -16,9 +16,9 @@ module.exports = {
       options: {
         aliases: {
         '@components': path.resolve(__dirname, 'src/components'),
-        '@config': path.resolve(__dirname, 'src/config'),
+        '@helpers': path.resolve(__dirname, 'src/helpers'),
         '@styles': path.resolve(__dirname, 'src/styles'),
-        '@icons': path.resolve(__dirname, 'src/icons'),
+        '@icons': path.resolve(__dirname, 'src/components/icons'),
         '@pages': path.resolve(__dirname, 'src/pages'),
         '@fonts': path.resolve(__dirname, 'src/fonts'),
         '@hooks': path.resolve(__dirname, 'src/hooks'),
