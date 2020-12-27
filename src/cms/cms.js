@@ -1,4 +1,5 @@
 import CMS from 'netlify-cms-app';
-import MenuPreview from './preview-templates/MenuPreview';
+import MenuSectionPreview from './preview-templates/MenuSectionPreview';
 
-CMS.registerPreviewTemplate('entrees', MenuPreview);
+CMS.registerPreviewStyle("/preview.css");
+CMS.registerPreviewTemplate('entrees', MenuSectionPreview);

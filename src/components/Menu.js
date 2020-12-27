@@ -237,3 +237,4 @@ const Menu = ({ menu }) => {
 };
 
 export default Menu;
+export { MenuItem, StyledMenuHeader, StyledMenuSection };
