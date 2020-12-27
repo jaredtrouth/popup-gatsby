@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Lato:wght@400;700;900&display=swap');
+
+@font-face {
+    font-family: "DayPosterBlack";
+    src: url("../../static/fonts/DAYPBL__-webfont.woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "EckhardtPosterItalicJNL";
+    src: url("../../static/fonts/3AEE99_0_0.eot");
+    src: url("../../static/fonts/3AEE99_0_0.eot?#iefix") format("embedded-opentype"),
+        url("../../static/fonts/3AEE99_0_0.woff2") format("woff2"),
+        url("../../static/fonts/3AEE99_0_0.woff") format("woff"),
+        url("../../static/fonts/3AEE99_0_0.ttf") format("truetype");
+    font-display: swap;
+}

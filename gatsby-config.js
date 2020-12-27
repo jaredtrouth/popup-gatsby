@@ -1,10 +1,9 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
     title: 'Pop-Up Chicken Shop | Illinois Hot Chicken | Bloomington',
-    description:
-      'TODO',
+    description: 'TODO',
     siteUrl: 'https://keepitpopup.com',
     image: 'img/popup_logo_badge.jpg',
   },
@@ -20,22 +19,22 @@ module.exports = {
         background_color: `#ed3825`,
         theme_color: `#002156`,
         display: `browser`,
-        icon: 'src/img/logo.png'
+        icon: 'src/img/logo.png',
       },
     },
     {
       resolve: `gatsby-alias-imports`,
       options: {
         aliases: {
-        '@components': path.resolve(__dirname, 'src/components'),
-        '@helpers': path.resolve(__dirname, 'src/helpers'),
-        '@styles': path.resolve(__dirname, 'src/styles'),
-        '@icons': path.resolve(__dirname, 'src/components/icons'),
-        '@pages': path.resolve(__dirname, 'src/pages'),
-        '@fonts': path.resolve(__dirname, 'src/fonts'),
-        '@hooks': path.resolve(__dirname, 'src/hooks'),
-      }
-      }
+          '@components': path.resolve(__dirname, 'src/components'),
+          '@helpers': path.resolve(__dirname, 'src/helpers'),
+          '@styles': path.resolve(__dirname, 'src/styles'),
+          '@icons': path.resolve(__dirname, 'src/components/icons'),
+          '@pages': path.resolve(__dirname, 'src/pages'),
+          '@fonts': path.resolve(__dirname, 'src/fonts'),
+          '@hooks': path.resolve(__dirname, 'src/hooks'),
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -65,9 +64,9 @@ module.exports = {
       options: {
         resolve: 'gatsby-source-filesystem',
         options: {
-          path: 'src/content/_menu'
-        }
-      }
+          path: 'src/content/_menu',
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-netlify-cms',
@@ -83,4 +82,4 @@ module.exports = {
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
-}
+};

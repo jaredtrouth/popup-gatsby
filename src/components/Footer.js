@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { socialMedia } from '../config';
 import { Icon } from '@components/icons';
+import { Fade } from 'react-awesome-reveal';
 
 const StyledFooter = styled.footer`
-  ${({ theme }) => theme.mixins.flexBetween };
+  ${({ theme }) => theme.mixins.flexBetween};
   flex-direction: column;
   height: auto;
   min-height: 70px;
@@ -43,17 +44,22 @@ const StyledSocialLinks = styled.div`
     margin: 0;
     list-style: none;
 
-    a {
-      padding: 10px;
+    li {
+      display: inline-block;
+      a {
+        padding: 10px;
+        transition: transform 100ms linear;
 
-      &:hover,
-      &:focus {
-        transform: scale(1.2);
-      }
-      svg {
-        fill: var(--yellow);
-        width: 20px;
-        height: 20px;
+        &:hover,
+        &:focus {
+          transform: scale(1.2);
+          background-color: inherit;
+        }
+        svg {
+          fill: var(--yellow);
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }
@@ -63,22 +69,32 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledContact>
-        <p>Contact <a href="mailto:thepopupchickenshop@gmail.com">thepopupchickenshop@gmail.com</a> for catering</p>
+        <Fade triggerOnce direction="down" delay={300}>
+          <p>
+            Contact{' '}
+            <a href="mailto:thepopupchickenshop@gmail.com">
+              thepopupchickenshop@gmail.com
+            </a>{' '}
+            for catering
+          </p>
+        </Fade>
       </StyledContact>
       <StyledSocialLinks>
         <ul>
-          {socialMedia &&
-            socialMedia.map(({ name, url }, i) => (
-              <li key={i}>
-                <a href={url} aria-label={name}>
-                  <Icon name={name} />
-                </a>
-              </li>
-            ))}
+          <Fade triggerOnce cascade damping={0.1} direction="down">
+            {socialMedia &&
+              socialMedia.map(({ name, url }, i) => (
+                <li key={i}>
+                  <a href={url} aria-label={name}>
+                    <Icon name={name} />
+                  </a>
+                </li>
+              ))}
+          </Fade>
         </ul>
       </StyledSocialLinks>
     </StyledFooter>
-  )    
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useScrollDirection from '@hooks/useScrollDirection';
 import PropTypes from 'prop-types';
+import { Fade } from 'react-awesome-reveal';
 
 const StyledHeader = styled.header`
-  ${({ theme }) => theme.mixins.flexAround };
+  ${({ theme }) => theme.mixins.flexAround};
   position: fixed;
   top: 0;
   z-index: 11;
-  width: 100%;
+  width: 100vw;
   height: 64px;
   top: 0;
   background-color: var(--red);
   transition: var(--transition);
 
-  ${props =>
+  ${(props) =>
     props.scrollDirection === 'down' &&
     !props.scrolledToTop &&
     css`
@@ -22,8 +23,8 @@ const StyledHeader = styled.header`
       transform: translateY(0);
       box-shadow: 0 10px 30px -10px black;
     `};
-  
-  ${props => 
+
+  ${(props) =>
     props.scrollDirection === 'up' &&
     !props.scrolledToTop &&
     css`
@@ -38,11 +39,9 @@ const StyledNav = styled.nav`
   width: 100%;
   color: slate;
   z-index: 12;
-
 `;
 
 const StyledLinks = styled.div`
-
   .logo {
     padding: 0;
 
@@ -96,7 +95,7 @@ const StyledLinks = styled.div`
       &:hover,
       &:focus {
         background-color: var(--yellow-tint);
-      }      
+      }
     }
   }
 `;
@@ -104,6 +103,12 @@ const StyledLinks = styled.div`
 const Navbar = ({ isHome }) => {
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
+  const [isMounted, setIsMounted] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 1000);
+    return () => clearTimeout(timeout);
+  });
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -116,20 +121,30 @@ const Navbar = ({ isHome }) => {
     };
   }, []);
 
-
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <StyledHeader
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+    >
       <StyledNav>
         <StyledLinks>
-          <ol>
-            <li><a href="/#menu">Menu</a></li>
-            <li><a href="/#location">Location</a></li>
+          <ol style={{ maxWidth: '100%' }}>
+            <Fade triggerOnce direction="left">
+              <li>
+                <a href="/#menu">Menu</a>
+              </li>
+            </Fade>
+            <Fade triggerOnce direction="right">
+              <li>
+                <a href="/#location">Location</a>
+              </li>
+            </Fade>
           </ol>
         </StyledLinks>
       </StyledNav>
     </StyledHeader>
-  )
-}
+  );
+};
 
 Navbar.propTypes = {
   isHome: PropTypes.bool,

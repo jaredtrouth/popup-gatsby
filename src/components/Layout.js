@@ -8,6 +8,7 @@ import { GlobalStyle } from '@styles';
 import theme from '@styles/theme';
 import Head from '@components/Head';
 import PropTypes from 'prop-types';
+import './Layout.css';
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
 if (typeof window !== 'undefined') {
@@ -23,10 +24,10 @@ const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-`
+`;
 const Layout = ({ children, location }) => {
-  const isHome = location.pathname === '/'
-  const [isLoading, setIsLoading] = useState(isHome)
+  const isHome = location.pathname === '/';
+  const [isLoading, setIsLoading] = useState(isHome);
 
   useEffect(() => {
     if (isLoading) {
@@ -42,20 +43,19 @@ const Layout = ({ children, location }) => {
         }
       }, 0);
     }
-  }, [isLoading, location.hash])
+  }, [isLoading, location.hash]);
 
-    // Sets target="_blank" rel="noopener noreferrer" on external links
+  // Sets target="_blank" rel="noopener noreferrer" on external links
   const handleExternalLinks = () => {
     const allLinks = Array.from(document.querySelectorAll('a'));
     if (allLinks.length > 0) {
-      allLinks.forEach(link => {
+      allLinks.forEach((link) => {
         if (link.host !== window.location.host) {
           link.setAttribute('rel', 'noopener noreferrer');
           link.setAttribute('target', '_blank');
         }
       });
-    };
-
+    }
   };
 
   useEffect(() => {
@@ -75,7 +75,7 @@ const Layout = ({ children, location }) => {
           ) : (
             <StyledContent>
               <Navbar isHome={isHome} />
-              <div id="content" style={{marginTop: '64px', backgroundColor: 'white'}}>
+              <div id="content" style={{ marginTop: '64px' }}>
                 <SiteBanner />
                 {children}
               </div>
@@ -93,4 +93,4 @@ Layout.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default Layout
+export default Layout;

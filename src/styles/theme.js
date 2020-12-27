@@ -13,8 +13,7 @@ const theme = {
     desktopL: `max-width: 1400px`,
   },
 
-  mixins
-
+  mixins,
 };
 
 export default theme;

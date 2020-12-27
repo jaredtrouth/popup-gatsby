@@ -4,12 +4,10 @@ import useMenuData from '@hooks/useMenuData';
 import Menu from '@components/menu';
 
 const MenuPreview = ({ entry }) => {
-    console.log(entry.getIn(['data']));
-    const menu = useMenuData();
+  console.log(entry.getIn(['data']));
+  const menu = useMenuData();
 
-    return (
-        <Menu menu={menu} />
-    );
+  return <Menu menu={menu} />;
 };
 
 export default MenuPreview;

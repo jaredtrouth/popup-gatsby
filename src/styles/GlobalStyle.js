@@ -1,6 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+
 :root {
     --red: #ed3825;
     --navy: #002156;
@@ -71,7 +72,7 @@ a {
     transition: var(--transition);
     cursor: pointer;
     padding: 0 2px;
-    border-radius: 10px;
+    border-radius: 5px;
     &:hover,
     &:focus {
         background-color: var(--yellow-tint);
@@ -80,6 +81,18 @@ a {
         ${({ theme }) => theme.mixins.inlineLink};
     }
 }
-`
+
+/* Fade down */
+  .fadeDown-enter {
+    opacity: 0.01;
+    transform: translateY(-20px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+  }
+  .fadeDown-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 300ms var(--easing), transform 300ms var(--easing);
+  }
+`;
 
 export default GlobalStyle;
