@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
 import { convertPrice } from '@helpers';
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 const StyledMenuCard = styled.div`
   max-width: 960px;
@@ -127,8 +127,9 @@ const StyledMenuSection = styled.div`
 `;
 
 const StyledFooter = styled.div`
-  ${({ theme }) => theme.mixins.flexBetween}
+  ${({ theme }) => theme.mixins.flexAround}
   flex-wrap: wrap;
+  
   width: 100%;
   border-bottom: 15px solid var(--yellow);
   text-align: center;
@@ -171,70 +172,79 @@ MenuItem.propTypes = {
 
 const Menu = ({ menu }) => {
   return (
-    <StyledMenuCard className="card">
-      <StyledMenuHeader>
-        <MenuHeader />
-      </StyledMenuHeader>
+		<StyledMenuCard className="card">
+			<StyledMenuHeader>
+				<MenuHeader />
+			</StyledMenuHeader>
 
-      <StyledColumn>
-        <StyledMenuSection>
-          <div>
-            <h4>Choose a style & heat level</h4>
-            <h5>Served with bread & pickles</h5>
-          </div>
-          <Fade triggerOnce>
-            {menu.entrees.items.map((i) => (
-              <MenuItem {...i} key={i.title} />
-            ))}
-          </Fade>
-        </StyledMenuSection>
+			<StyledColumn>
+				<Fade triggerOnce>
+					<StyledMenuSection>
+						<div>
+							<h4>Choose a style & heat level</h4>
+							<h5>Served with bread & pickles</h5>
+						</div>
+						<Zoom triggerOnce>
+							{menu.entrees.items.map((i) => (
+								<MenuItem {...i} key={i.title} />
+							))}
+						</Zoom>
+					</StyledMenuSection>
+				</Fade>
 
-        <StyledMenuSection>Heat Meter</StyledMenuSection>
-      </StyledColumn>
-      <StyledColumn style={{ paddingTop: 15 }}>
-        <StyledMenuSection>
-          <h2>Sides</h2>
-          <Fade triggerOnce>
-            {menu.sides.items.map((i) => (
-              <MenuItem {...i} key={i.title} />
-            ))}
-          </Fade>
-        </StyledMenuSection>
-        <StyledMenuSection>
-          <h2>Addons</h2>
-          <Fade triggerOnce>
-            {menu.addons.items.map((i) => (
-              <MenuItem {...i} key={i.title} />
-            ))}
-          </Fade>
-        </StyledMenuSection>
-        <StyledMenuSection>
-          <h2>Sauces</h2>
-          TODO: Sauce Card
-        </StyledMenuSection>
-        <StyledMenuSection>
-          <h2>Drinks</h2>
-          <Fade triggerOnce>
-            {menu.drinks.items.map((i) => (
-              <MenuItem {...i} key={i.title} />
-            ))}
-          </Fade>
-        </StyledMenuSection>
-      </StyledColumn>
-      <StyledFooter>
-        <address>
-          <Icon name="Location" size={14} />
-          1006 E. Lincoln St. VFW Post 454 Bloomington IL 61701
-        </address>
-        <div>
-          <Icon name="Phone" size={14} />
-          <a href="tel:+13098273999">(309) 827-3999</a>&nbsp;or&nbsp;
-          <a href="tel:+13098211380">(309) 821-1380</a>
-        </div>
-      </StyledFooter>
-    </StyledMenuCard>
-  );
+				<Fade triggerOnce>
+					<StyledMenuSection>Heat Meter</StyledMenuSection>
+				</Fade>
+			</StyledColumn>
+			<StyledColumn style={{ paddingTop: 15 }}>
+				<Fade triggerOnce>
+					<StyledMenuSection>
+						<h2>Sides</h2>
+						<Zoom triggerOnce>
+							{menu.sides.items.map((i) => (
+								<MenuItem {...i} key={i.title} />
+							))}
+						</Zoom>
+					</StyledMenuSection>
+				</Fade>
+				<StyledMenuSection>
+					<h2>Addons</h2>
+					<Zoom triggerOnce cascade damping={0.1}>
+						{menu.addons.items.map((i) => (
+							<MenuItem {...i} key={i.title} />
+						))}
+					</Zoom>
+				</StyledMenuSection>
+				<Fade triggerOnce>
+					<StyledMenuSection>
+						<h2>Sauces</h2>
+						TODO: Sauce Card
+					</StyledMenuSection>
+				</Fade>
+				<Fade triggerOnce>
+					<StyledMenuSection>
+						<h2>Drinks</h2>
+						<Zoom triggerOnce cascade damping={0.1}>
+							{menu.drinks.items.map((i) => (
+								<MenuItem {...i} key={i.title} />
+							))}
+						</Zoom>
+					</StyledMenuSection>
+				</Fade>
+			</StyledColumn>
+			<StyledFooter>
+				<address>
+					<Icon name="Location" size={14} />
+					1006 E. Lincoln St. VFW Post 454 Bloomington IL 61701
+				</address>
+				<div>
+					<Icon name="Phone" size={14} />
+					<a href="tel:+13098273999">(309) 827-3999</a>&nbsp;or&nbsp;
+					<a href="tel:+13098211380">(309) 821-1380</a>
+				</div>
+			</StyledFooter>
+		</StyledMenuCard>
+	);
 };
 
 export default Menu;
-export { MenuItem, StyledMenuHeader, StyledMenuSection };

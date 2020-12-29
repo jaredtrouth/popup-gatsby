@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '@components/Layout';
 import Menu from '../components/Menu';
 import useMenuData from '@hooks/useMenuData';
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 const StyledMainContainer = styled.main`
   background-color: var(--red);
@@ -34,7 +34,7 @@ const StyledSection = styled.section`
     margin: 20px;
     .card {
       border-radius: 5px;
-      box-shadow: -2px 2px 5px 1px black;
+      box-shadow: -1px 1px 8px 1px black;
     }
   }
 `;
@@ -45,17 +45,17 @@ const IndexPage = ({ location }) => {
   return (
     <Layout location={location}>
       <StyledMainContainer className="fillHeight">
-        <StyledSectionHeading>
-          <Fade triggerOnce delay={300}>
+        <StyledSectionHeading id="menu">
+          <Zoom triggerOnce>
             Menu
-          </Fade>
+          </Zoom>
         </StyledSectionHeading>
         <StyledSection>
           <Fade triggerOnce direction="up">
             <Menu className="card" menu={menu} />
           </Fade>
         </StyledSection>
-        <StyledSectionHeading>
+        <StyledSectionHeading id="location">
           <Fade triggerOnce direction="left">
             Location
           </Fade>

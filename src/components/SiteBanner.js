@@ -15,6 +15,7 @@ const StyledBanner = styled.div`
   text-align: center;
   color: var(--yellow);
   text-shadow: -2px 2px var(--navy);
+  overflow: hidden;
 
   .address-block,
   .hours-block {

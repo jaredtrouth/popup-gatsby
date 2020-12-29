@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useScrollDirection from '@hooks/useScrollDirection';
 import PropTypes from 'prop-types';
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Flip } from 'react-awesome-reveal';
+import { Icon } from '@icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexAround};
@@ -36,82 +37,85 @@ const StyledHeader = styled.header`
 
 const StyledNav = styled.nav`
   position: relative;
-  width: 100%;
+  width: 100vw;
   color: slate;
   z-index: 12;
 `;
 
 const StyledLinks = styled.div`
-  .logo {
-    padding: 0;
+	.navLogo {
+		padding: 0;
+		transition: var(--transition);
+		transition-delay: 200ms;
 
-    @media (max-width: 768px) {
-      display: none;
-    }
-    a {
-      color: var(--navy);
-      width: 62px;
-      height: 62px;
-      padding: 5px 0;
+		&.hide {
+			opacity: 0;
+		}
 
-      &:hover,
-      &:focus {
-        transform: scale(1.1);
-        background-color: inherit;
-      }
-    }
-  }
+		@media (max-width: 768px) {
+			display: none;
+		}
+		a {
+			color: var(--navy);
+			width: 62px;
+			height: 62px;
+			padding: 5px 0;
 
-  @media (max-width: 768px;) {
-    display: none;
-  }
+			&:hover,
+			&:focus {
+				transform: scale(1.1);
+				transform-origin: 50% 50%;
+				transition-duration: 200ms;
+				background-color: inherit;
+			}
+		}
+	}
 
-  ol {
-    ${({ theme }) => theme.mixins.flexBetween};
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
+	@media (max-width: 768px;) {
+		display: none;
+	}
 
-  li {
-    margin: 0 5px;
-    position: relative;
-    font-size: 1em;
-    text-transform: uppercase;
-    text-align: center;
+	ol {
+		${({ theme }) => theme.mixins.flexBetween};
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+	}
 
-    a {
-      color: var(--yellow);
-      font-family: var(--font-bold);
-      letter-spacing: 3px;
-      text-shadow: -2px 2px var(--navy);
-      padding: 3px 10px;
-      border-radius: 5px;
+	li {
+		margin: 0 5px;
+		position: relative;
+		font-size: 1em;
+		text-transform: uppercase;
+		text-align: center;
 
-      &:hover,
-      &:focus {
-        background-color: var(--yellow-tint);
-      }
-    }
-  }
+		a {
+			color: var(--yellow);
+			font-family: var(--font-bold);
+			letter-spacing: 3px;
+			text-shadow: -2px 2px var(--navy);
+			padding: 3px 10px;
+			border-radius: 5px;
+
+			&:hover,
+			&:focus {
+				background-color: var(--yellow-tint);
+			}
+		}
+	}
 `;
 
 const Navbar = ({ isHome }) => {
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
-  const [isMounted, setIsMounted] = useState(true);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsMounted(true), 1000);
-    return () => clearTimeout(timeout);
-  });
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
+    console.log(window.pageYOffset);
   };
 
   useEffect(() => {
@@ -122,28 +126,33 @@ const Navbar = ({ isHome }) => {
   }, []);
 
   return (
-    <StyledHeader
-      scrollDirection={scrollDirection}
-      scrolledToTop={scrolledToTop}
-    >
-      <StyledNav>
-        <StyledLinks>
-          <ol style={{ maxWidth: '100%' }}>
-            <Fade triggerOnce direction="left">
-              <li>
-                <a href="/#menu">Menu</a>
-              </li>
-            </Fade>
-            <Fade triggerOnce direction="right">
-              <li>
-                <a href="/#location">Location</a>
-              </li>
-            </Fade>
-          </ol>
-        </StyledLinks>
-      </StyledNav>
-    </StyledHeader>
-  );
+		<StyledHeader
+			scrollDirection={scrollDirection}
+			scrolledToTop={scrolledToTop}
+		>
+			<StyledNav>
+				<StyledLinks>
+					<ol style={{ maxWidth: "100%" }}>
+						<Fade triggerOnce direction="left">
+							<li>
+								<a href="/#menu">Menu</a>
+							</li>
+						</Fade>
+						<div className={`navLogo ${scrolledToTop ? "hide" : "show"}`}>
+							<a href={isHome ? "#" : "/"}>
+								<Icon name="Logo"></Icon>
+							</a>
+						</div>
+						<Fade triggerOnce direction="right">
+							<li>
+								<a href="/#location">Location</a>
+							</li>
+						</Fade>
+					</ol>
+				</StyledLinks>
+			</StyledNav>
+		</StyledHeader>
+	);
 };
 
 Navbar.propTypes = {

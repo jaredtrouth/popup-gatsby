@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { socialMedia } from '../config';
 import { Icon } from '@components/icons';
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 const StyledFooter = styled.footer`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -81,7 +81,7 @@ const Footer = () => {
       </StyledContact>
       <StyledSocialLinks>
         <ul>
-          <Fade triggerOnce cascade damping={0.1} direction="down">
+          <Zoom triggerOnce cascade damping={0.1}>
             {socialMedia &&
               socialMedia.map(({ name, url }, i) => (
                 <li key={i}>
@@ -90,7 +90,7 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
-          </Fade>
+          </Zoom>
         </ul>
       </StyledSocialLinks>
     </StyledFooter>

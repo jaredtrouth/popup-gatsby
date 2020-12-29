@@ -1,37 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
-import { MenuItem } from "@components/Menu";
+import { convertPrice } from '@helpers';
 
-const StyledMenuHeader = styled.div`
-	display: flex;
-	flex: 100%;
-
-	.outside-border {
-		display: flex;
-    justify-content: center;
-		width: 100%;
-		border-top: 15px solid var(--yellow);
-	}
-
-	.header {
-		display: flex;
-    justify-content: center;
-		width: 100%;
-		border-top: 7px double var(--red);
-		border-bottom: 7px double var(--red);
-
-		h3 {
-			margin: 0;
-			padding: 0 5px;
-			text-align: center;
-			align: center;
-		}
-	}
-`;
-
-const StyledMenuSection = styled.div`
-	
-`;
+const MenuItem = ({ title, description, price }) => (
+	<div className="menu-item-wrapper">
+		<div className="menu-item-left">
+			<div className="title">{title}</div>
+			<div className="description">{description}</div>
+		</div>
+		<div className="menu-item-right">{convertPrice(price)}</div>
+	</div>
+);
 
 const MenuSectionPreview = ({ entry, widgetsFor }) => {
   // console.log(entry.getIn(['data'],['items']));
