@@ -9,6 +9,7 @@ import theme from '@styles/theme';
 import Head from '@components/Head';
 import PropTypes from 'prop-types';
 import './Layout.css';
+import { Fade } from 'react-awesome-reveal';
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
 if (typeof window !== 'undefined') {
@@ -63,29 +64,31 @@ const Layout = ({ children, location }) => {
   }, []);
 
   return (
-    <>
-      <Head />
+		<>
+			<Head />
 
-      <div id="root">
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
+			<div id="root">
+				<ThemeProvider theme={theme}>
+					<GlobalStyle />
 
-          {isLoading && isHome ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : (
-            <StyledContent>
-              <Navbar isHome={isHome} />
-              <div id="content" style={{ marginTop: '64px' }}>
-                <SiteBanner />
-                {children}
-              </div>
-              <Footer />
-            </StyledContent>
-          )}
-        </ThemeProvider>
-      </div>
-    </>
-  );
+					{isLoading && isHome ? (
+						<Loader finishLoading={() => setIsLoading(false)} />
+					) : (
+						<Fade triggerOnce duration={2000}>
+							<StyledContent>
+								<Navbar isHome={isHome} />
+								<div id="content" style={{ marginTop: '64px' }}>
+									<SiteBanner />
+									{children}
+								</div>
+								<Footer />
+							</StyledContent>
+						</Fade>
+					)}
+				</ThemeProvider>
+			</div>
+		</>
+	);
 };
 
 Layout.propTypes = {

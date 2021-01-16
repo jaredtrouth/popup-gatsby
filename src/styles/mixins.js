@@ -3,8 +3,7 @@ import { css } from 'styled-components';
 const button = css`
   color: var(--green);
   background-color: transparent;
-  border: 1px solid var(--green);
-  border-radius: var(--border-radius);
+  ${'' /* border-radius: var(--border-radius); */}
   font-size: var(--fz-xs);
   font-family: var(--font-mono);
   line-height: 1;
@@ -16,8 +15,6 @@ const button = css`
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--green-tint);
-    outline: none;
   }
   &:after {
     display: none !important;

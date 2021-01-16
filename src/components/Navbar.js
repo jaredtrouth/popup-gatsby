@@ -2,47 +2,45 @@ import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useScrollDirection from '@hooks/useScrollDirection';
 import PropTypes from 'prop-types';
-import { Fade, Flip } from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal';
 import { Icon } from '@icons';
+import NavMenu from "@components/NavMenu";
+import { navLinks } from '../config';
 
 const StyledHeader = styled.header`
-  ${({ theme }) => theme.mixins.flexAround};
-  position: fixed;
-  top: 0;
-  z-index: 11;
-  width: 100vw;
-  height: 64px;
-  top: 0;
-  background-color: var(--red);
-  transition: var(--transition);
+	${({ theme }) => theme.mixins.flexAround};
+	position: fixed;
+	top: 0;
+	z-index: 11;
+	width: 100vw;
+	height: 64px;
+	padding: 0 50px;
+	top: 0;
+	background-color: var(--red);
+	transition: var(--transition);
 
-  ${(props) =>
-    props.scrollDirection === 'down' &&
-    !props.scrolledToTop &&
-    css`
-      top: -84px;
-      transform: translateY(0);
-      box-shadow: 0 10px 30px -10px black;
-    `};
+	@media (max-width: 768px) {
+		padding: 0 25px;
+	}
 
-  ${(props) =>
-    props.scrollDirection === 'up' &&
-    !props.scrolledToTop &&
-    css`
-      top: 0;
-      transform: translateY(calc(64 * -1));
-      box-shadow: 0 10px 30px -10px black;
-    `};
-`;
+	${(props) =>
+		props.scrollDirection === 'down' &&
+		!props.scrolledToTop &&
+		css`
+			top: -84px;
+			transform: translateY(0);
+			box-shadow: 0 10px 30px -10px black;
+		`};
 
-const StyledNav = styled.nav`
-  position: relative;
-  width: 100vw;
-  color: slate;
-  z-index: 12;
-`;
+	${(props) =>
+		props.scrollDirection === 'up' &&
+		!props.scrolledToTop &&
+		css`
+			top: 0;
+			transform: translateY(calc(64 * -1));
+			box-shadow: 0 10px 30px -10px black;
+		`};
 
-const StyledLinks = styled.div`
 	.navLogo {
 		padding: 0;
 		transition: var(--transition);
@@ -52,9 +50,6 @@ const StyledLinks = styled.div`
 			opacity: 0;
 		}
 
-		@media (max-width: 768px) {
-			display: none;
-		}
 		a {
 			color: var(--navy);
 			width: 62px;
@@ -70,12 +65,30 @@ const StyledLinks = styled.div`
 			}
 		}
 	}
+`;
+
+const StyledNav = styled.nav`
+  position: relative;
+  width: 100vw;
+  color: slate;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const StyledLinks = styled.div`
+	display: flex;
+	align-items: center;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 
 	@media (max-width: 768px;) {
 		display: none;
 	}
 
-	ol {
+	ul {
 		${({ theme }) => theme.mixins.flexBetween};
 		padding: 0;
 		margin: 0;
@@ -83,27 +96,29 @@ const StyledLinks = styled.div`
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 
 	li {
 		margin: 0 5px;
 		position: relative;
-		font-size: 1em;
+		font-size: 1.2em;
 		text-transform: uppercase;
 		text-align: center;
-
+		
 		a {
 			color: var(--yellow);
 			font-family: var(--font-bold);
 			letter-spacing: 3px;
 			text-shadow: -2px 2px var(--navy);
 			padding: 3px 10px;
-			border-radius: 5px;
+			margin: 0 10px;
+			transition: 0.2s;
 
 			&:hover,
 			&:focus {
-				background-color: var(--yellow-tint);
+				background-color: inherit;
+				box-shadow: 0 10px 0 0 var(--navy);
 			}
 		}
 	}
@@ -115,7 +130,6 @@ const Navbar = ({ isHome }) => {
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
-    console.log(window.pageYOffset);
   };
 
   useEffect(() => {
@@ -128,28 +142,25 @@ const Navbar = ({ isHome }) => {
   return (
 		<StyledHeader
 			scrollDirection={scrollDirection}
-			scrolledToTop={scrolledToTop}
-		>
+			scrolledToTop={scrolledToTop}>
 			<StyledNav>
+				<a
+					href={isHome ? '#top' : '/'}
+					className={`navLogo ${scrolledToTop ? 'hide' : 'show'}`}>
+					<Icon name="Logo"></Icon>
+				</a>
 				<StyledLinks>
-					<ol style={{ maxWidth: "100%" }}>
-						<Fade triggerOnce direction="left">
-							<li>
-								<a href="/#menu">Menu</a>
-							</li>
+					<ul style={{ maxWidth: '100%' }}>
+						<Fade triggerOnce cascade direction="down" delay={150} damping={0.25}>
+							{navLinks.map(({ url, name }) => (
+								<li>
+									<a href={url}>{name}</a>
+								</li>
+							))}
 						</Fade>
-						<div className={`navLogo ${scrolledToTop ? "hide" : "show"}`}>
-							<a href={isHome ? "#" : "/"}>
-								<Icon name="Logo"></Icon>
-							</a>
-						</div>
-						<Fade triggerOnce direction="right">
-							<li>
-								<a href="/#location">Location</a>
-							</li>
-						</Fade>
-					</ol>
+					</ul>
 				</StyledLinks>
+				<NavMenu />
 			</StyledNav>
 		</StyledHeader>
 	);

@@ -13,4 +13,15 @@ module.exports = {
 			url: "https://www.yelp.com/biz/pop-up-chicken-shop-bloomington",
 		},
 	],
+
+	navLinks: [
+		{
+			name: "Menu",
+			url: "/#menu"
+		},
+		{
+			name: "Location",
+			url: "/#location"
+		}
+	]
 };

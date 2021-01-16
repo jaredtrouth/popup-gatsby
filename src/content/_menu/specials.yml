@@ -1,7 +1,0 @@
-items:
-  - startDate: 2020-12-27T19:11:18.317Z
-    endDate: 2099-12-27T00:00:00.000Z
-    title: Current Special
-    description: This special should be currently running
-    price: 10
-    image: /static/img/topology-reference.png

@@ -15,20 +15,23 @@ const StyledFooter = styled.footer`
 `;
 
 const StyledContact = styled.div`
-  ${({ theme }) => theme.mixins.flexCenter};
-  padding: 0;
-  color: white;
-  width: 100%;
-  font-size: 14px;
+	${({ theme }) => theme.mixins.flexCenter};
+	padding: 0;
+	color: white;
+	width: 100%;
+	font-family: 'EckhardtPosterItalicJNL', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  
   a {
-    text-decoration: none;
-    color: var(--yellow);
+		text-decoration: none;
+		color: var(--yellow);
 
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-  }
+		&:hover,
+		&:focus {
+			background-color: inherit;
+		}
+	}
 `;
 
 const StyledSocialLinks = styled.div`

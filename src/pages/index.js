@@ -1,10 +1,12 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Layout from '@components/Layout';
 import Menu from '../components/Menu';
 import useMenuData from '@hooks/useMenuData';
 import { Fade, Zoom } from 'react-awesome-reveal';
+import Hero from '../components/Hero';
 
 const StyledMainContainer = styled.main`
   background-color: var(--red);
@@ -39,19 +41,21 @@ const StyledSection = styled.section`
   }
 `;
 
-const IndexPage = ({ location }) => {
+const IndexPage = ({ location, data }) => {
   const menu = useMenuData();
+  console.log(menu);
 
   return (
     <Layout location={location}>
       <StyledMainContainer className="fillHeight">
-        <StyledSectionHeading id="menu">
+        <Hero heroImage={data.heroImage.fluid} />
+        <StyledSectionHeading id="menu" style={{/*boxShadow: '0 -10px 10px -10px black', position: 'relative', zIndex: 1*/}}>
           <Zoom triggerOnce>
             Menu
           </Zoom>
         </StyledSectionHeading>
         <StyledSection>
-          <Fade triggerOnce direction="up">
+          <Fade triggerOnce delay={100}>
             <Menu className="card" menu={menu} />
           </Fade>
         </StyledSection>
@@ -81,5 +85,15 @@ const IndexPage = ({ location }) => {
 IndexPage.propTypes = {
   location: PropTypes.object.isRequired,
 };
+
+export const query = graphql`
+	{
+		heroImage: imageSharp(original: { src: { regex: "/chickens-hero/" } }) {
+			fluid {
+				...GatsbyImageSharpFluid
+			}
+		}
+	}
+`;
 
 export default IndexPage;
