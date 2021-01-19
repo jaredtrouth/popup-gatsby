@@ -1043,7 +1043,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.5.tgz#2c40f81449a4e554e9fc6396910ed4843ec2be50"
   integrity sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==
 
-"@emotion/react@^11.1.1":
+"@emotion/react@^11.1.4":
   version "11.1.4"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.1.4.tgz#ddee4247627ff7dd7d0c6ae52f1cfd6b420357d2"
   integrity sha512-9gkhrW8UjV4IGRnEe4/aGPkUxoGS23aD9Vu6JCGfEDyBYL+nGkkRBoMFGAzCT9qFdyUvQp4UUtErbKWxq/JS4A==
@@ -7105,13 +7105,13 @@ gatsby-transformer-yaml-full@^0.4.0:
     is-plain-object "^5.0.0"
     js-yaml "^4.0.0"
 
-gatsby-transformer-yaml@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml/-/gatsby-transformer-yaml-2.8.0.tgz#6b0a353efdbbcc2f38896d65087169b4c09bf9a6"
-  integrity sha512-z7XhhGFshOw2yGKcerD7LDbFjJHhntwcrriktDic+dvbN3/UKrfJdiF4aJrSnP/MFwpclqti17Zo7BJSWXLiow==
+gatsby-transformer-yaml@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-yaml/-/gatsby-transformer-yaml-2.9.0.tgz#cb4da0a1d2c9ae2ffafb7ffe57b47d7506bcfc13"
+  integrity sha512-Jpn+XwNoSOq5dPxVEhXHNcc7DZNjPYGgBXu38m2vE5Z+sahXeLHbZKxx1pkTO9vfWWt2v36cF733kLxbH047BA==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    js-yaml "^3.14.0"
+    js-yaml "^3.14.1"
     lodash "^4.17.20"
     unist-util-select "^1.5.0"
 
@@ -9308,7 +9308,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.11.0, js-yaml@^3.13.1, js-yaml@^3.14.0:
+js-yaml@^3.11.0, js-yaml@^3.13.1, js-yaml@^3.14.1:
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz#dae812fdb3825fa306609a8717383c50c36a0537"
   integrity sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==
@@ -12775,13 +12775,14 @@ react-aria-menubutton@^6.0.0:
     react-display-name "^0.2.4"
     teeny-tap "^0.2.0"
 
-react-awesome-reveal@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/react-awesome-reveal/-/react-awesome-reveal-3.5.1.tgz#b874cec989d8f4323e09939b7da435c71891153d"
-  integrity sha512-GIi62++gljV04lNTYI6LJqrS0bBrNX7GFBBl7zvMdf8Wt5ySipVrRjdKZVTVR1ls/EVon9Yn2915G5JW/rVb6A==
+react-awesome-reveal@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-awesome-reveal/-/react-awesome-reveal-3.7.0.tgz#f75d71c6cf2a4d38dc075c4f4c57682fd4ce6fbb"
+  integrity sha512-/9M12nMti0Jc03/gB546PtZDqygh6MKTs9sCopDh234gZfkHHdF5ezpxQMdkXPVnd0TcF5O4Z8gYj87lHQ8zYA==
   dependencies:
-    "@emotion/react" "^11.1.1"
-    react-intersection-observer "^8.30.3"
+    "@emotion/react" "^11.1.4"
+    react-intersection-observer "^8.31.0"
+    react-is "^17.0.1"
 
 react-codemirror2@^7.0.0:
   version "7.2.1"
@@ -12930,7 +12931,7 @@ react-input-autosize@^2.2.1:
   dependencies:
     prop-types "^15.5.8"
 
-react-intersection-observer@^8.30.3:
+react-intersection-observer@^8.31.0:
   version "8.31.0"
   resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.31.0.tgz#0ed21aaf93c4c0475b22b0ccaba6169076d01605"
   integrity sha512-XraIC/tkrD9JtrmVA7ypEN1QIpKc52mXBH1u/bz/aicRLo8QQEJQAMUTb8mz4B6dqpPwyzgjrr7Ljv/2ACDtqw==
@@ -12939,6 +12940,11 @@ react-is@16.13.1, react-is@^16.12.0, react-is@^16.13.1, react-is@^16.6.0, react-
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-is@^17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
+  integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
 react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
