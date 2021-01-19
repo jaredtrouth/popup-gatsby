@@ -6817,15 +6817,15 @@ gatsby-plugin-page-creator@^2.8.1:
     globby "^11.0.1"
     lodash "^4.17.20"
 
-gatsby-plugin-preload-fonts@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-1.6.1.tgz#b726ea2e93fac04c7efbd168b9e60524b2d4458d"
-  integrity sha512-1jhfWg0YYiv2fUbOP9SviHLUjg13xZ2wePKCnk6KMjo3q5H6VZpEXRHss4odgLEx9LDtUn6TlMsClrjQ1GfErw==
+gatsby-plugin-preload-fonts@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preload-fonts/-/gatsby-plugin-preload-fonts-1.7.0.tgz#c853d7ea59f1fd76f729e62a5dc6afd7f54e7388"
+  integrity sha512-vlG/KCVBUDl9ytzkRAH6jl5d4TF2EFlF0+wgVAbDucvNzw62l06TTBK+BrmzjzeCQlpsBa2nAPuz4mYi/Ea0kQ==
   dependencies:
     chalk "^4.1.0"
     date-fns "^2.16.1"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.7.1"
+    gatsby-core-utils "^1.8.0"
     graphql-request "^1.8.2"
     progress "^2.0.3"
     puppeteer "^3.3.0"
